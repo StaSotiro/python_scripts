@@ -1,8 +1,6 @@
 from azure.identity import DefaultAzureCredential
 from azure.monitor.query import LogsQueryClient, LogsQueryStatus
 import pandas as pd
-import logging
-import os
 from datetime import timedelta
 
 query = "StorageBlobLogs | limit 10" 

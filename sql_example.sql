@@ -1,3 +1,7 @@
+
+-- Please note that the countryRatings is the calculation required for question 3a 
+-- For lack of repeating, I decided to not retype it in a separate file
+
 with countryRatings as (
 	select country, avg(rating) as avgRating
 	from tourism_dataset td 

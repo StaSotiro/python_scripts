@@ -41,6 +41,7 @@ def upload_file_to_blob(container_client, blob_name, file_path):
     print(f"File '{file_path}' uploaded successfully to container '{container_name}' as '{blob_name}'.")
 
 def get_blob_client(connection_string, account_url, connection_type="constring"):
+    
     # Initialize the BlobServiceClient
     if connection_string is None and connection_type == "constring":
         print("Provide connection string for default connection type or authenticate with credentials")

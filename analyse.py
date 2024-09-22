@@ -1,3 +1,8 @@
+# This script downloads the tourism_dataset.csv file from 'raw' blob container, 
+# performs an analysis, combines the results and finally uploads it to the container 
+# named stavros-sotiropoulos under Stavros-Sotiropoulos.csv
+# Please ensure you provide a CONNECTION_STRING variable 
+
 from io import StringIO
 import os
 import pandas as pd

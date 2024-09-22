@@ -1,6 +1,3 @@
-# Import the needed credential and management objects from the libraries.
-import os
-
 from azure.identity import DefaultAzureCredential
 from azure.mgmt.compute import ComputeManagementClient
 from azure.mgmt.network import NetworkManagementClient
@@ -13,14 +10,8 @@ minute or two."
 
 # Acquire a credential object.
 credential = DefaultAzureCredential()
-
-# Retrieve subscription ID from environment variable.
 subscription_id = 'aee8556f-d2fd-4efd-a6bd-f341a90fa76e'
 
-
-# Constants we need in multiple places: the resource group name and
-# the region in which we provision resources. You can change these
-# values however you want.
 RESOURCE_GROUP_NAME = "Data_Engineer"
 LOCATION = "westeurope"
 
@@ -134,10 +125,6 @@ def createVirtualMachine(nic_result):
     take a few minutes."
     )
 
-    # Provision the VM specifying only minimal arguments, which defaults
-    # to an Ubuntu 18.04 VM on a Standard DS1 v2 plan with a public IP address
-    # and a default virtual network/subnet.
-
     poller = compute_client.virtual_machines.begin_create_or_update(
         RESOURCE_GROUP_NAME,
         VM_NAME,
@@ -192,19 +179,10 @@ if __name__ == "__main__":
         {rg_result.location} region"
         )
 
-        # For details on the previous code, see Example: Provision a resource
-        # group at https://learn.microsoft.com/azure/developer/python/
-        # azure-sdk-example-resource-group
 
         # Step 2: provision a virtual network
-
-        # A virtual machine requires a network interface client (NIC). A NIC
-        # requires a virtual network and subnet along with an IP address.
-        # Therefore we must provision these downstream components first, then
-        # provision the NIC, after which we can provision the VM.
-
-
         print("Creating VN")
+
         # Obtain the management object for networks
         network_client = NetworkManagementClient(credential, subscription_id)
 

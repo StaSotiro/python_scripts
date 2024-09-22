@@ -9,9 +9,6 @@
 import pandas as pd
 import numpy as np
 import multiprocessing
-from collections import deque
-import time
-
 
 filePath = './samples/MOCK_DATA_orders.csv'
 resultsFile = './results/area_totals.csv'
